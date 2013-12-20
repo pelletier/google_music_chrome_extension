@@ -19,7 +19,7 @@
             message: "" + state.track + " - " + state.author,
             iconUrl: imgSrc
           };
-          return chrome.notifications.create('', opts, function() {});
+          return chrome.notifications.create('gmusic.notification', opts, function() {});
         };
         return xhr.send();
       }

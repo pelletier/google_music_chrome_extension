@@ -13,5 +13,5 @@ chrome.runtime.onMessage.addListener (request, sender, sendResponse) ->
           title: "Now playing"
           message: "#{state.track} - #{state.author}"
           iconUrl: imgSrc
-        chrome.notifications.create('', opts, () ->)
+        chrome.notifications.create('gmusic.notification', opts, () ->)
       xhr.send()
