@@ -5,13 +5,13 @@
     <h4>{{{author}}}</h4>
   </div>
   <div class='controls'>
-    <a class='back' href="#"><i class='fa fa-fast-backward fa-2x'/></a>
-    <a class='play' href="#"><i class='fa fa-{{#if isPlaying}}pause{{else}}play{{/if}} fa-2x'/></a>
-    <a class='next' href="#"><i class='fa fa-fast-forward fa-2x'/></a>
+    <a class='back' href="#" title="Previous song"><i class='fa fa-fast-backward fa-2x'/></a>
+    <a class='play' href="#" title="{{#if isPlaying}}Pause{{else}}Play{{/if}}"><i class='fa fa-{{#if isPlaying}}pause{{else}}play{{/if}} fa-2x'/></a>
+    <a class='next' href="#" title="Next song"><i class='fa fa-fast-forward fa-2x'/></a>
     <div class='thumbs'>
-      <a class='up' href="#"><i class='fa fa-thumbs-up {{#if thumbUp}}selected{{/if}}'/></a>
-      <a class='down' href="#"><i class='fa fa-thumbs-down {{#if thumbDown}}selected{{/if}}'/></a>
+      <a class='up' href="#" title="Thumbs up"><i class='fa fa-thumbs-up {{#if thumbUp}}selected{{/if}}'/></a>
+      <a class='down' href="#" title="Thumbs down"><i class='fa fa-thumbs-down {{#if thumbDown}}selected{{/if}}'/></a>
     </div>
   </div>
-  <a class='open' href="#"><i class='fa fa-external-link'/></a>
+  <a class='open' href="#" title="Switch to Google Music tab"><i class='fa fa-external-link'/></a>
 </div>

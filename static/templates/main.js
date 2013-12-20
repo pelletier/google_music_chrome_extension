@@ -8,16 +8,28 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
 function program1(depth0,data) {
   
   
-  return "pause";
+  return "Pause";
   }
 
 function program3(depth0,data) {
   
   
-  return "play";
+  return "Play";
   }
 
 function program5(depth0,data) {
+  
+  
+  return "pause";
+  }
+
+function program7(depth0,data) {
+  
+  
+  return "play";
+  }
+
+function program9(depth0,data) {
   
   
   return "selected";
@@ -35,16 +47,19 @@ function program5(depth0,data) {
   if (stack1 = helpers.author) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = (depth0 && depth0.author); stack1 = typeof stack1 === functionType ? stack1.call(depth0, {hash:{},data:data}) : stack1; }
   if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += "</h4>\n  </div>\n  <div class='controls'>\n    <a class='back' href=\"#\"><i class='fa fa-fast-backward fa-2x'/></a>\n    <a class='play' href=\"#\"><i class='fa fa-";
+  buffer += "</h4>\n  </div>\n  <div class='controls'>\n    <a class='back' href=\"#\" title=\"Previous song\"><i class='fa fa-fast-backward fa-2x'/></a>\n    <a class='play' href=\"#\" title=\"";
   stack1 = helpers['if'].call(depth0, (depth0 && depth0.isPlaying), {hash:{},inverse:self.program(3, program3, data),fn:self.program(1, program1, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += " fa-2x'/></a>\n    <a class='next' href=\"#\"><i class='fa fa-fast-forward fa-2x'/></a>\n    <div class='thumbs'>\n      <a class='up' href=\"#\"><i class='fa fa-thumbs-up ";
-  stack1 = helpers['if'].call(depth0, (depth0 && depth0.thumbUp), {hash:{},inverse:self.noop,fn:self.program(5, program5, data),data:data});
+  buffer += "\"><i class='fa fa-";
+  stack1 = helpers['if'].call(depth0, (depth0 && depth0.isPlaying), {hash:{},inverse:self.program(7, program7, data),fn:self.program(5, program5, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += "'/></a>\n      <a class='down' href=\"#\"><i class='fa fa-thumbs-down ";
-  stack1 = helpers['if'].call(depth0, (depth0 && depth0.thumbDown), {hash:{},inverse:self.noop,fn:self.program(5, program5, data),data:data});
+  buffer += " fa-2x'/></a>\n    <a class='next' href=\"#\" title=\"Next song\"><i class='fa fa-fast-forward fa-2x'/></a>\n    <div class='thumbs'>\n      <a class='up' href=\"#\" title=\"Thumbs up\"><i class='fa fa-thumbs-up ";
+  stack1 = helpers['if'].call(depth0, (depth0 && depth0.thumbUp), {hash:{},inverse:self.noop,fn:self.program(9, program9, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += "'/></a>\n    </div>\n  </div>\n  <a class='open' href=\"#\"><i class='fa fa-external-link'/></a>\n</div>\n";
+  buffer += "'/></a>\n      <a class='down' href=\"#\" title=\"Thumbs down\"><i class='fa fa-thumbs-down ";
+  stack1 = helpers['if'].call(depth0, (depth0 && depth0.thumbDown), {hash:{},inverse:self.noop,fn:self.program(9, program9, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "'/></a>\n    </div>\n  </div>\n  <a class='open' href=\"#\" title=\"Switch to Google Music tab\"><i class='fa fa-external-link'/></a>\n</div>\n";
   return buffer;
   });
 })();
