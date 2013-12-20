@@ -30,7 +30,7 @@
   infosHash = function() {
     var i;
     i = getInfos();
-    return [i.track, i.author, i.index].join('__');
+    return [i.track, i.author].join('__');
   };
 
   sendUpdate = function(callback) {

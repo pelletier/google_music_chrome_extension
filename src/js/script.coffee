@@ -20,7 +20,7 @@ getInfos = () ->
 
 infosHash = () ->
   i = getInfos()
-  [i.track, i.author, i.index].join('__')
+  [i.track, i.author].join('__')
 
 sendUpdate = (callback) -> callback(getInfos())
 
