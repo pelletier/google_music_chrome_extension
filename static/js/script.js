@@ -50,7 +50,6 @@
   };
 
   chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
-    debugger;
     switch (request.kind) {
       case "play":
         togglePlayPause();
@@ -82,7 +81,6 @@
   };
 
   $(function() {
-    debugger;
     lastPlaying = infosHash();
     return setInterval(checkCurrentlyPlaying, 2000);
   });

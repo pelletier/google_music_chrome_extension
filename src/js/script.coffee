@@ -34,7 +34,6 @@ back = () ->
   $(".player-middle button[data-id='rewind']").click()
 
 chrome.runtime.onMessage.addListener (request, sender, sendResponse) ->
-  debugger
   switch request.kind
     when "play" then togglePlayPause()
     when "next" then next()
@@ -52,6 +51,5 @@ checkCurrentlyPlaying = () ->
 
 
 $ () ->
-  debugger
   lastPlaying = infosHash()
   setInterval(checkCurrentlyPlaying, 2000)
