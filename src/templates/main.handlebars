@@ -1,0 +1,13 @@
+<div class='player'>
+  <img src="{{art}}"/>
+  <div class='info'>
+    <h3>{{track}}</h3>
+    <h4>{{author}}</h4>
+  </div>
+  <div class='controls'>
+    <a class='back' href="#"><i class='fa fa-fast-backward fa-2x'/></a>
+    <a class='play' href="#"><i class='fa fa-{{#if isPlaying}}pause{{else}}play{{/if}} fa-2x'/></a>
+    <a class='next' href="#"><i class='fa fa-fast-forward fa-2x'/></a>
+  </div>
+  <a class='open' href="#"><i class='fa fa-external-link'/></a>
+</div>
