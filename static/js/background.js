@@ -12,18 +12,36 @@
         xhr.responseType = 'blob';
         xhr.onload = function(e) {
           var imgSrc;
+          chrome.notifications.clear('gmusic.notification', function() {});
           imgSrc = window.webkitURL.createObjectURL(this.response);
           opts = {
             type: 'basic',
             title: "Now playing",
             message: "" + state.track + " - " + state.author,
-            iconUrl: imgSrc
+            iconUrl: imgSrc,
+            buttons: [
+              {
+                title: 'Skip this track',
+                iconUrl: 'static/imgs/forward.png'
+              }
+            ]
           };
           return chrome.notifications.create('gmusic.notification', opts, function() {});
         };
         return xhr.send();
       }
     }
+  });
+
+  chrome.notifications.onButtonClicked.addListener(function(notificationId, buttonIndex) {
+    return isGoogleMusicLoaded().then(function(tabId) {
+      switch (buttonIndex) {
+        case 0:
+          return chrome.tabs.sendMessage(tabId, {
+            kind: 'next'
+          });
+      }
+    });
   });
 
 }).call(this);

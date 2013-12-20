@@ -7,7 +7,7 @@
   "author": "Thomas Pelletier",
 
   "background": {
-    "scripts": ["static/js/common.js", "static/js/background.js"],
+    "scripts": ["vendor/jquery-2.0.3.min.js", "static/js/common.js", "static/js/background.js"],
     "persistent": false
   },
 

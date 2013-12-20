@@ -3,7 +3,7 @@
 @isGoogleMusicLoaded = () ->
   deferred = $.Deferred()
   chrome.tabs.query url: "https://play.google.com/music/*", (arrayOfTabs)->
-    deferred.resolve(arrayOfTabs.length && arrayOfTabs[0].id)
+    deferred.resolve(arrayOfTabs.length and arrayOfTabs[0].id)
   deferred
 
 
