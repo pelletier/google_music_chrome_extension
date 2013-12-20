@@ -10,6 +10,11 @@ getIsPlaying = () ->
 getArt = () ->
   $("#playerSongInfo #playingAlbumArt").attr('src')
 
+isThumbUp = () ->
+  $(".player-rating-container li[data-rating='5']").hasClass('selected')
+
+isThumbDown = () ->
+  $(".player-rating-container li[data-rating='1']").hasClass('selected')
 
 getInfos = () ->
   track: getCurrentTrack()
@@ -17,6 +22,8 @@ getInfos = () ->
   isPlaying: getIsPlaying()
   art: "https:#{getArt()}"
   index: $('.currently-playing').index()
+  thumbUp: isThumbUp()
+  thumbDown: isThumbDown()
 
 infosHash = () ->
   i = getInfos()
@@ -33,11 +40,19 @@ next = () ->
 back = () ->
   $(".player-middle button[data-id='rewind']").click()
 
+like = () ->
+  $(".player-rating-container li[data-rating='5']").click()
+
+dislike = () ->
+  $(".player-rating-container li[data-rating='1']").click()
+
 chrome.runtime.onMessage.addListener (request, sender, sendResponse) ->
   switch request.kind
     when "play" then togglePlayPause()
     when "next" then next()
     when "back" then back()
+    when "like" then like()
+    when "dislike" then dislike()
     else null
   sendUpdate(sendResponse)
 
@@ -48,7 +63,6 @@ checkCurrentlyPlaying = () ->
   if lastPlaying isnt now
     lastPlaying = now
     chrome.runtime.sendMessage({kind: 'nowPlaying', infos: getInfos()}, () ->)
-
 
 $ () ->
   lastPlaying = infosHash()

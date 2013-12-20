@@ -9,7 +9,6 @@
     function Player(tabId) {
       var _this = this;
       this.tabId = tabId;
-      console.log(this.tabId);
       this.state = {};
       if (this.tabId === 0) {
         this.showNotStarted();
@@ -31,7 +30,6 @@
       chrome.tabs.sendMessage(this.tabId, {
         kind: "currentTrack"
       }, function(response) {
-        console.log(response);
         _this.state = response;
         return deferred.resolve(response);
       });
@@ -66,6 +64,8 @@
       $('.play').click(this.sendMessageAndUpdate.bind(this, 'play'));
       $('.next').click(this.sendMessageAndUpdate.bind(this, 'next'));
       $('.back').click(this.sendMessageAndUpdate.bind(this, 'back'));
+      $('.up').click(this.sendMessageAndUpdate.bind(this, 'like'));
+      $('.down').click(this.sendMessageAndUpdate.bind(this, 'dislike'));
       return $('.open').click(this.switchToMusic.bind(this));
     };
 

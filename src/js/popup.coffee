@@ -3,7 +3,6 @@ render = (name, data) ->
 
 class Player
   constructor: (@tabId) ->
-    console.log(@tabId)
     @state = {}
     if @tabId is 0
       @showNotStarted()
@@ -17,7 +16,6 @@ class Player
   getInfos: () ->
     deferred = $.Deferred()
     chrome.tabs.sendMessage @tabId, {kind: "currentTrack"}, (response) =>
-      console.log(response)
       @state = response
       deferred.resolve(response)
     deferred
@@ -42,6 +40,8 @@ class Player
     $('.play').click @sendMessageAndUpdate.bind(this, 'play')
     $('.next').click @sendMessageAndUpdate.bind(this, 'next')
     $('.back').click @sendMessageAndUpdate.bind(this, 'back')
+    $('.up').click @sendMessageAndUpdate.bind(this, 'like')
+    $('.down').click @sendMessageAndUpdate.bind(this, 'dislike')
     $('.open').click @switchToMusic.bind(this)
 
   sendMessageAndUpdate: (message) ->

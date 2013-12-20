@@ -38,3 +38,5 @@ body {
   bottom: 2px;
   right: 4px;
   font-size: 11px; }
+.player .selected {
+  color: #fc7007; }

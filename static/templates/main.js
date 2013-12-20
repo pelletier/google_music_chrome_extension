@@ -17,6 +17,12 @@ function program3(depth0,data) {
   return "play";
   }
 
+function program5(depth0,data) {
+  
+  
+  return "selected";
+  }
+
   buffer += "<div class='player'>\n  <img src=\"";
   if (stack1 = helpers.art) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = (depth0 && depth0.art); stack1 = typeof stack1 === functionType ? stack1.call(depth0, {hash:{},data:data}) : stack1; }
@@ -32,7 +38,13 @@ function program3(depth0,data) {
   buffer += "</h4>\n  </div>\n  <div class='controls'>\n    <a class='back' href=\"#\"><i class='fa fa-fast-backward fa-2x'/></a>\n    <a class='play' href=\"#\"><i class='fa fa-";
   stack1 = helpers['if'].call(depth0, (depth0 && depth0.isPlaying), {hash:{},inverse:self.program(3, program3, data),fn:self.program(1, program1, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += " fa-2x'/></a>\n    <a class='next' href=\"#\"><i class='fa fa-fast-forward fa-2x'/></a>\n  </div>\n  <a class='open' href=\"#\"><i class='fa fa-external-link'/></a>\n</div>\n";
+  buffer += " fa-2x'/></a>\n    <a class='next' href=\"#\"><i class='fa fa-fast-forward fa-2x'/></a>\n    <div class='thumbs'>\n      <a class='up' href=\"#\"><i class='fa fa-thumbs-up ";
+  stack1 = helpers['if'].call(depth0, (depth0 && depth0.thumbUp), {hash:{},inverse:self.noop,fn:self.program(5, program5, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "'/></a>\n      <a class='down' href=\"#\"><i class='fa fa-thumbs-down ";
+  stack1 = helpers['if'].call(depth0, (depth0 && depth0.thumbDown), {hash:{},inverse:self.noop,fn:self.program(5, program5, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "'/></a>\n    </div>\n  </div>\n  <a class='open' href=\"#\"><i class='fa fa-external-link'/></a>\n</div>\n";
   return buffer;
   });
 })();
