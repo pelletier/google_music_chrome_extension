@@ -36,6 +36,11 @@ body {
 .player .open {
   position: absolute;
   bottom: 2px;
+  right: 20px;
+  font-size: 11px; }
+.player .popout {
+  position: absolute;
+  bottom: 2px;
   right: 4px;
   font-size: 11px; }
 .player .selected {

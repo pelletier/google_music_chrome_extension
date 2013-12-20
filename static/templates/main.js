@@ -59,7 +59,7 @@ function program9(depth0,data) {
   buffer += "'/></a>\n      <a class='down' href=\"#\" title=\"Thumbs down\"><i class='fa fa-thumbs-down ";
   stack1 = helpers['if'].call(depth0, (depth0 && depth0.thumbDown), {hash:{},inverse:self.noop,fn:self.program(9, program9, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += "'/></a>\n    </div>\n  </div>\n  <a class='open' href=\"#\" title=\"Switch to Google Music tab\"><i class='fa fa-external-link'/></a>\n</div>\n";
+  buffer += "'/></a>\n    </div>\n  </div>\n  <a class='popout' title='Open a separate window'><i class='fa fa-external-link'/></a>\n  <a class='open' href=\"#\" title=\"Switch to Google Music tab\"><i class='fa fa-headphones'/></a>\n</div>\n";
   return buffer;
   });
 })();

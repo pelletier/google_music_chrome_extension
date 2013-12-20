@@ -12,6 +12,9 @@ class Player
           @showNoSong()
         else
           @showMain()
+    chrome.runtime.onMessage.addListener (request, sender, sendResponse) ->
+      if sender.tab and request.kind is 'nowPlaying'
+        location.reload()
 
   getInfos: () ->
     deferred = $.Deferred()
@@ -43,6 +46,7 @@ class Player
     $('.up').click @sendMessageAndUpdate.bind(this, 'like')
     $('.down').click @sendMessageAndUpdate.bind(this, 'dislike')
     $('.open').click @switchToMusic.bind(this)
+    $('.popout').click () -> window.open(chrome.extension.getURL("popout.html"),"gc-popout-window","width=290,height=122,resizable=0")
 
   sendMessageAndUpdate: (message) ->
     chrome.tabs.sendMessage @tabId, {kind: message}, (response) =>

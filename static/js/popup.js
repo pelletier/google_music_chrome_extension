@@ -21,6 +21,11 @@
           }
         });
       }
+      chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
+        if (sender.tab && request.kind === 'nowPlaying') {
+          return location.reload();
+        }
+      });
     }
 
     Player.prototype.getInfos = function() {
@@ -66,7 +71,10 @@
       $('.back').click(this.sendMessageAndUpdate.bind(this, 'back'));
       $('.up').click(this.sendMessageAndUpdate.bind(this, 'like'));
       $('.down').click(this.sendMessageAndUpdate.bind(this, 'dislike'));
-      return $('.open').click(this.switchToMusic.bind(this));
+      $('.open').click(this.switchToMusic.bind(this));
+      return $('.popout').click(function() {
+        return window.open(chrome.extension.getURL("popout.html"), "gc-popout-window", "width=290,height=122,resizable=0");
+      });
     };
 
     Player.prototype.sendMessageAndUpdate = function(message) {

@@ -1,0 +1,22 @@
+.popout {
+  width: 282px;
+  height: 106px; }
+  .popout .player .controls {
+    height: 37px;
+    position: absolute;
+    top: 78px;
+    background: #eeeeee;
+    left: 0px;
+    padding-top: 7px;
+    width: 262px;
+    padding-left: 28px; }
+  .popout .player .thumbs {
+    position: relative;
+    bottom: 40px;
+    width: 88px;
+    font-size: 2em;
+    left: 138px; }
+  .popout .player .open {
+    right: 7px; }
+  .popout .player .popout {
+    display: none; }
